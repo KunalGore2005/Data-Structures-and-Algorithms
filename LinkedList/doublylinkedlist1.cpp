@@ -1,70 +1,59 @@
 #include <iostream>
 using namespace std;
 
-struct node
-{
+struct node{
 public:
     node *next = NULL;
     node *pre = NULL;
     int val;
 };
-class doublylinkedlist
-{
+class doublylinkedlist{
 public:
     node *head = NULL;
     node *tail = NULL;
     node *temp = NULL;
     int n;
-    void creation()
-    {
+    void creation(){
         cout << "How many elements you want to have in douly linked list: ";
         cin >> n;
-        for (int i = 0; i < n; i++)
-        {
+        for (int i = 0; i < n; i++){
             node *newnode = new node;
             cout << "Enter the value of node: ";
             cin >> newnode->val;
-            if (head == NULL)
-            {
+            if (head == NULL){
                 head = newnode;
                 tail = newnode;
             }
-            else
-            {
+            else{
                 tail->next = newnode;
                 newnode->pre = tail;
                 tail = newnode;
             }
         }
     }
-    void insertion()
-    {
+    void insertion(){
         cout << "How do you want to perform insertion: \n1. At beggining\n2.At ending\n3.After a specific node\n4.Before a specific node\n";
         int choice;
         cin >> choice;
         node *newnode = new node;
         cout << "Enter the value of this node: ";
         cin >> newnode->val;
-        if (choice == 1)
-        {
+        if (choice == 1){
             head->pre = newnode;
             newnode->next = head;
             head = newnode;
         }
-        else if (choice == 2)
-        {
+        else if (choice == 2){
             tail->next = newnode;
             newnode->pre = tail;
             tail = newnode;
         }
-        if (choice == 3)
-        {
+        else if (choice == 3){
             temp = head;
             cout << "After which node do you want to insert new node: ";
             int pos;
             cin >> pos;
-            for (int i = 1; i < pos; i++)
-            {
+            for (int i = 1; i < pos; i++){
                 temp = temp->next;
             }
             temp->next->pre = newnode;
@@ -72,14 +61,12 @@ public:
             newnode->pre = temp;
             temp->next = newnode;
         }
-        else if (choice == 4)
-        {
+        else if (choice == 4){
             temp = tail;
             cout << "Before which node do you want to insert new node from last: ";
             int pos;
             cin >> pos;
-            for (int i = n; i > pos; i--)
-            {
+            for (int i = n; i > pos; i--){
                 temp = temp->pre;
             }
             temp->next->pre = newnode;
@@ -88,18 +75,15 @@ public:
             temp->next=newnode;
         }
     }
-    void printdata()
-    {
+    void printdata(){
         temp = head;
-        while (temp != NULL)
-        {
+        while (temp != NULL){
             cout << temp->val << " ";
             temp = temp->next;
         }
         cout << endl;
         temp = tail;
-        while (temp != NULL)
-        {
+        while (temp != NULL){
             cout << temp->val << " ";
             temp = temp->pre;
         }
