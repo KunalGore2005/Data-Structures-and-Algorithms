@@ -43,7 +43,7 @@ int main()
         cin>>newnode->data;
         bst.construct(root,newnode);
     }
-    cout<<root->data<<" ";
+    cout<<root->data<<endl;
     bst.InOrderTraversal(root);
     return 0;
 }
