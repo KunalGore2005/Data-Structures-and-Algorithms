@@ -1,4 +1,5 @@
 .vscode/
-mockvita.cpp
-Round_robin.cpp
-TCSMockvita2.cpp
+.mockvita.cpp/
+.Round_robin.cpp/
+.TCSMockvita2.cpp/
+.tempfolder/
